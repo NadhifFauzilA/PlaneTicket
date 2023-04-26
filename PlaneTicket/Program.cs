@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace PlaneTicket
 {
@@ -10,23 +6,59 @@ namespace PlaneTicket
     {
         static void Main(string[] args)
         {
-            planeticket ticket1 = new planeticket();
+            // Global Variable
+            string User_name;
+            string Destination;
+
+            // Class Declaration
+            planeticket ticket = new planeticket();
             planeticket ticket2 = new planeticket();
+            plane test = new plane();
 
-            ticket1.Origin = "Jogja";
-            ticket1.Destination = "PKU";
-            ticket1.Cost = 100;
-            ticket1.Currency = "USD";
+            // Main Code
+            Console.Write("Please Insert Username : ");
+            User_name = Console.ReadLine();
 
-            ticket2.Origin = "Jakarta";
-            ticket2.Destination = "IND";
-            ticket2.Cost = 750000;
-            ticket2.Currency = "IDR";
+        mainmenu:
 
-            ticket1.PrintSummary();
-            ticket2.PrintSummary();
+            Console.WriteLine("Masukan Tujuan Perjalalanan ");
+            Console.Write("Available : Jogjakarta , jakarta : ");
+            Destination = Console.ReadLine();
+
+            if (Destination == "jogjakarta" || Destination == "JOGJAKARTA")
+            {
+                ticket.Username = User_name;
+                ticket.Origin = "Jogjakarta";
+                ticket.Destination = "PKU";
+                ticket.Cost = 100;
+                ticket.Currency = "USD";
+                ticket.PrintSummary();
+                Console.WriteLine("Press any button to Continue");
+                Console.ReadKey();
+                Console.Clear();
+                goto mainmenu;
+
+            }
+            else if (Destination == "jakarta" || Destination == "JAKARTA")
+            {
+                ticket.Username = User_name;
+                ticket.Origin = "Jakarta";
+                ticket.Destination = "IND";
+                ticket.Cost = 750000;
+                ticket.Currency = "IDR";
+                ticket.PrintSummary();
+                goto mainmenu;
+            }
+            else if (Destination == "Palembang" || Destination == "PALEMBANG")
+            {
 
 
+
+            }
+            else
+            {
+                Console.WriteLine("Destination Not Found ");
+            }
             Console.ReadKey();
         }
     }

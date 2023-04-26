@@ -12,13 +12,16 @@ namespace PlaneTicket
         public string Destination { get; set; }
         public int Cost { get; set; }
         public string Currency { get; set; }
+        public string User { get; set; } 
+        public string Username { get; set; }
 
-
+        //Print summary
         public void PrintSummary ()
         {
-            Console.WriteLine("Origin {0} ", Origin);
-            Console.WriteLine("Destination {0}", Destination);
-            Console.WriteLine("Cost {0} ", Cost); 
+            Console.WriteLine("Username    : "  + Username);
+            Console.WriteLine("Origin      : " + Origin);
+            Console.WriteLine("Destination : " + Destination);
+            Console.WriteLine("Cost        : " + Cost); 
 
             if (Currency == "USD" ) {
                 Console.WriteLine("Convert to Rupiah {0} ", Cost * 150000);
@@ -28,5 +31,11 @@ namespace PlaneTicket
                 Console.WriteLine("Convert to USD {0} ", Cost / 100);
             }
         }
+      
+
+    }
+    public class plane
+    {
+
     }
 }
